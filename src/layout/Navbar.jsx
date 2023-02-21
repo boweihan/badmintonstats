@@ -16,7 +16,11 @@ function Navbar() {
     },
   ]
   const links = routes.map((route, index) => (
-    <NavLink to={route.url} key={index} className="btn btn-ghost btn-sm">
+    <NavLink
+      to={route.url}
+      key={index}
+      className="btn btn-ghost btn-sm rounded-md"
+    >
       {route.text}
     </NavLink>
   ))
@@ -31,7 +35,7 @@ function Navbar() {
       {currentUser && (
         <div className="navbar-center px-2 mx-2 hidden md:flex">
           <div className="flex items-stretch space-x-2">
-            <NavLink to="/" className="btn btn-ghost btn-sm" exact>
+            <NavLink to="/" className="btn btn-ghost btn-sm rounded-md" exact>
               Home
             </NavLink>
             {links}

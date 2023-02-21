@@ -24,6 +24,20 @@ class DatabaseService {
     return snapshot.data()
   }
 
+  getByPropertyValue = async ({ queryKey }) => {
+    const { property, value } = queryKey[1]
+    console.log(property, value)
+
+    const snapshot = await this.collection.where(property, '==', value).get()
+
+    return snapshot.docs.map((doc) => {
+      return {
+        id: doc.id,
+        ...doc.data(),
+      }
+    })
+  }
+
   getReference = async (documentReference) => {
     const res = await documentReference.get()
     const data = res.data()
@@ -51,5 +65,7 @@ class DatabaseService {
 export const PlayerService = new DatabaseService('players')
 
 export const GroupService = new DatabaseService('groups')
+
+export const TieService = new DatabaseService('ties')
 
 export const AuthorService = new DatabaseService('authors')

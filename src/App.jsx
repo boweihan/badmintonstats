@@ -4,8 +4,8 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 import Navbar from '@/layout/Navbar'
-
 import Home from '@/screens/Home'
+import Group from '@/screens/Group'
 import NotFound from '@/screens/NotFound'
 import ScreenLogin from '@/screens/auth/Login'
 import ScreenJoin from '@/screens/auth/Join'
@@ -23,6 +23,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/group/:id">
+              <Group />
             </Route>
             <Route path="/login">
               <ScreenLogin />

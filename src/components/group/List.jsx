@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import {
   UserCircleIcon,
@@ -10,8 +11,10 @@ import EmptyState from '@/components/ui/EmptyState'
 import DeleteModal from '@/components/ui/DeleteModal'
 
 function GroupList({ data, deleteAction }) {
+  const history = useHistory()
   const [selected, setSelected] = useState()
   const [openModal, setOpenModal] = useState(false)
+
   if (!data || data.length == 0) {
     return (
       <EmptyState
@@ -52,21 +55,15 @@ function GroupList({ data, deleteAction }) {
         </Link>
       </div> */}
       <table className="table w-full max-w-screen-lg py-0">
-        <thead>
-          <tr>
-            {/* <th>Your Groups</th> */}
-            {/* <th scope="col">
-              <span className="sr-only">Edit</span>
-            </th>
-            <th scope="col">
-              <span className="sr-only">Delete</span>
-            </th> */}
-          </tr>
-        </thead>
         <tbody>
           {data.map((group, index) => (
             <tr key={index}>
-              <td>{group.name}</td>
+              <td
+                onClick={() => history.push(`/group/${group.id}`)}
+                className="cursor-pointer hover:bg-white hover:text-black rounded-md"
+              >
+                {group.name}
+              </td>
               {/* <td>
                 <Link
                   to={`/group/edit/${group.id}`}
