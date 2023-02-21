@@ -35,6 +35,8 @@ function ScreenLogin() {
         const user = userCredential.user
         console.log(user)
 
+        // user.updateProfile({ displayName: 'Bowei Han' })
+
         history.push('/')
       })
       .catch((error) => {
@@ -89,7 +91,7 @@ function ScreenLogin() {
                 )}
               </div>
 
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
                     id="rememberMe"
@@ -104,14 +106,14 @@ function ScreenLogin() {
                 </div>
 
                 <div className="text-sm">
-                  <a
-                    href="#"
+                  <button
+                    onClick={() => auth.sendPasswordResetEmail()}
                     className="font-medium hover:text-accent-content link"
                   >
                     Forgot your password?
-                  </a>
+                  </button>
                 </div>
-              </div>
+              </div> */}
 
               <div>
                 <button type="submit" className="btn btn-secondary btn-block">

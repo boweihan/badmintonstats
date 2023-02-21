@@ -28,14 +28,16 @@ function Navbar() {
           <span className="text-base-content">Stats</span>
         </Link>
       </div>
-      <div className="navbar-center px-2 mx-2 hidden md:flex">
-        <div className="flex items-stretch space-x-2">
-          <NavLink to="/" className="btn btn-ghost btn-sm" exact>
-            Home
-          </NavLink>
-          {links}
+      {currentUser && (
+        <div className="navbar-center px-2 mx-2 hidden md:flex">
+          <div className="flex items-stretch space-x-2">
+            <NavLink to="/" className="btn btn-ghost btn-sm" exact>
+              Home
+            </NavLink>
+            {links}
+          </div>
         </div>
-      </div>
+      )}
       <div className="navbar-end">
         <div className="flex space-x-4">
           {currentUser ? (
