@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import Navbar from '@/layout/Navbar'
 import Home from '@/screens/Home'
 import Group from '@/screens/Group'
+import Tie from '@/screens/Tie'
 import NotFound from '@/screens/NotFound'
 import ScreenLogin from '@/screens/auth/Login'
 import ScreenJoin from '@/screens/auth/Join'
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/group/:id">
               <Group />
+            </Route>
+            <Route path="/tie/:id">
+              <Tie />
             </Route>
             <Route path="/login">
               <ScreenLogin />

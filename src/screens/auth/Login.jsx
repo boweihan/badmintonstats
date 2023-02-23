@@ -33,9 +33,8 @@ function ScreenLogin() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user
-        console.log(user)
 
-        // user.updateProfile({ displayName: 'Bowei Han' })
+        // user.updateProfile({ displayName: 'Bryan Lam' })
 
         history.push('/')
       })

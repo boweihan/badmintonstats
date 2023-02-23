@@ -26,9 +26,21 @@ class DatabaseService {
 
   getByPropertyValue = async ({ queryKey }) => {
     const { property, value } = queryKey[1]
-    console.log(property, value)
 
     const snapshot = await this.collection.where(property, '==', value).get()
+
+    return snapshot.docs.map((doc) => {
+      return {
+        id: doc.id,
+        ...doc.data(),
+      }
+    })
+  }
+
+  getByPropertyValueList = async ({ queryKey }) => {
+    const { property, values } = queryKey[1]
+
+    const snapshot = await this.collection.where(property, 'in', values).get()
 
     return snapshot.docs.map((doc) => {
       return {
@@ -68,4 +80,4 @@ export const GroupService = new DatabaseService('groups')
 
 export const TieService = new DatabaseService('ties')
 
-export const AuthorService = new DatabaseService('authors')
+export const GameService = new DatabaseService('games')

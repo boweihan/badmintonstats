@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useCurrentUser } from '@/hooks/useCurrentUser'
 import { GroupService } from '@/services/DatabaseService'
@@ -8,7 +8,6 @@ import Alert from '@/components/ui/Alert'
 import TieList from '@/components/tie/List'
 
 function Group() {
-  const history = useHistory()
   const currentUser = useCurrentUser()
   const { id } = useParams()
 
